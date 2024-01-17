@@ -58,8 +58,6 @@ export default function Gamer(props) {
     const couch_group_ref = useRef();
     const wallmonitors_group_ref = useRef();
 
-
-
     // Use the hook for floor group
     useAnimateGroup(floor_group_ref, { range: -20, min: -10, duration: 2.2, resetTargetY: 0 });
 

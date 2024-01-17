@@ -14,7 +14,7 @@ import LogoJS from './components/logo_js';
 import LogoGithub from './components/logo_github';
 
 import Tower from './components/Tower'
-import Gamer from './components/Gamer'
+import Gamer from './components/Gamer2'
 
 import { Water } from 'three-stdlib'
 
