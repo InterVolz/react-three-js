@@ -53,12 +53,23 @@ export default function Gamer(props) {
     const mesh_ref = useRef();
     const floor_group_ref = useRef();
     const wall_group_ref = useRef();
+    const desk_group_ref = useRef();
+    const monitor_group_ref = useRef();
+    const couch_group_ref = useRef();
+    const wallmonitors_group_ref = useRef();
+
+
 
     // Use the hook for floor group
-    useAnimateGroup(floor_group_ref, { range: -30, min: -20, duration: 2, resetTargetY: 0 });
+    useAnimateGroup(floor_group_ref, { range: -20, min: -10, duration: 2.2, resetTargetY: 0 });
 
     // Use the hook for wall group
-    useAnimateGroup(wall_group_ref, { range: 50, min: 30, duration: 2, resetTargetY: 0.5 });
+    useAnimateGroup(wall_group_ref, { range: 20, min: 10, duration: 2, resetTargetY: 0.5 });
+
+    useAnimateGroup(desk_group_ref, { range: 20, min: 10, duration: 2.3, resetTargetY: 0 });
+    useAnimateGroup(monitor_group_ref, { range: 21, min: 20, duration: 2.4, resetTargetY: 0.5 });
+    useAnimateGroup(couch_group_ref, { range: 30, min: 20, duration: 2.5, resetTargetY: 0.1 });
+    useAnimateGroup(wallmonitors_group_ref, { range: 30, min: 20, duration: 2.6, resetTargetY: 3.5 });
 
     const open_github = () => {
         window.open("https://github.com/MaxwellVolz")
@@ -234,28 +245,42 @@ export default function Gamer(props) {
                 <mesh geometry={nodes.wall_corner_1.geometry} material={nodes.wall_corner_1.material} position={[13.3, 0, 0]} />
                 <mesh geometry={nodes.wall_corner.geometry} material={nodes.wall_corner.material} />
             </group>
-            <mesh geometry={nodes.Cube077.geometry} material={nodes.Cube077.material} />
-            <mesh geometry={nodes.Cube164.geometry} material={nodes.Cube164.material} position={[1.57, 0.225, 1.4]} scale={[3.314, 1, 1]} />
-            <mesh geometry={nodes.Cube165.geometry} material={nodes.Cube165.material} position={[-1.57, 0.225, 1.4]} scale={[3.314, 1, 1]} />
-            <mesh geometry={nodes['5_mon'].geometry} material={nodes['5_mon'].material} position={[-0.079, 0.609, -0.254]} scale={1.203} />
-            <mesh geometry={nodes['5_mon_screens'].geometry} material={nodes['5_mon_screens'].material} position={[-0.079, 0.609, -0.254]} scale={1.203} />
-            <mesh geometry={nodes.Cube175.geometry} material={nodes.Cube175.material} position={[-1.335, 1.045, 1.163]} rotation={[0, -0.392, 0]} scale={[0.396, 0.016, 0.396]} />
-            <mesh geometry={nodes.Cube176.geometry} material={nodes.Cube176.material} position={[1.333, 1.045, 1.071]} rotation={[0, 0.442, 0]} scale={[0.396, 0.016, 0.396]} />
-            <mesh geometry={nodes.Cube177.geometry} material={nodes.Cube177.material} position={[-0.001, 5.384, 7.556]} scale={[21.287, 3.642, 0.101]} />
-            <mesh geometry={nodes.Cube162.geometry} material={nodes.Cube162.material} position={[-0.001, 2.876, 7.556]} scale={[15.254, 5.963, 0.101]} />
-            <mesh geometry={nodes.Cube163.geometry} material={nodes.Cube163.material} position={[-4.591, 2.702, 7.556]} scale={[2.927, 5.267, 0.101]} />
-            <mesh geometry={nodes.Cube178.geometry} material={nodes.Cube178.material} position={[4.589, 2.702, 7.556]} scale={[2.927, 5.267, 0.101]} />
-            <mesh geometry={nodes.Cube179.geometry} material={nodes.Cube179.material} position={[-6.502, 3.376, 3.62]} rotation={[0, Math.PI / 2, 0]} scale={[13.42, 7.149, 0.101]} />
-            <mesh geometry={nodes.Cube180.geometry} material={nodes.Cube180.material} position={[6.502, 3.376, 3.62]} rotation={[0, Math.PI / 2, 0]} scale={[13.42, 7.149, 0.101]} />
-            <mesh geometry={nodes.Cube166.geometry} material={nodes.Cube166.material} />
-            <mesh geometry={nodes.Cube167.geometry} material={nodes.Cube167.material} position={[0, 0, -2.41]} />
-            <mesh geometry={nodes.Cube168.geometry} material={nodes.Cube168.material} position={[0, 0, -4.813]} />
-            <mesh geometry={nodes.Cube169.geometry} material={nodes.Cube169.material} position={[-11.752, 0, 0]} />
-            <mesh geometry={nodes.Cube170.geometry} material={nodes.Cube170.material} position={[-11.752, 0, -2.41]} />
-            <mesh geometry={nodes.Cube171.geometry} material={nodes.Cube171.material} position={[-11.752, 0, -4.813]} />
-            <mesh geometry={nodes.Cube172.geometry} material={nodes.Cube172.material} position={[-2.222, 0, 12.762]} rotation={[0, Math.PI / 2, 0]} />
-            <mesh geometry={nodes.Cube173.geometry} material={nodes.Cube173.material} position={[-4.632, 0, 12.762]} rotation={[0, Math.PI / 2, 0]} />
-            <mesh geometry={nodes.Cube174.geometry} material={nodes.Cube174.material} position={[-10.342, 0, 12.762]} rotation={[0, Math.PI / 2, 0]} />
+            <group ref={desk_group_ref}>
+
+                <mesh geometry={nodes.Cube077.geometry} material={nodes.Cube077.material} />
+                <mesh geometry={nodes.Cube164.geometry} material={nodes.Cube164.material} position={[1.57, 0.225, 1.4]} scale={[3.314, 1, 1]} />
+                <mesh geometry={nodes.Cube165.geometry} material={nodes.Cube165.material} position={[-1.57, 0.225, 1.4]} scale={[3.314, 1, 1]} />
+            </group>
+            <group ref={monitor_group_ref}>
+                <mesh geometry={nodes.Cube175.geometry} material={nodes.Cube175.material} position={[-1.335, 1.045, 1.163]} rotation={[0, -0.392, 0]} scale={[0.396, 0.016, 0.396]} />
+                <mesh geometry={nodes.Cube176.geometry} material={nodes.Cube176.material} position={[1.333, 1.045, 1.071]} rotation={[0, 0.442, 0]} scale={[0.396, 0.016, 0.396]} />
+                <mesh geometry={nodes['5_mon'].geometry} material={nodes['5_mon'].material} position={[-0.079, 0.609, -0.254]} scale={1.203} />
+                <mesh geometry={nodes['5_mon_screens'].geometry} material={nodes['5_mon_screens'].material} position={[-0.079, 0.609, -0.254]} scale={1.203} />
+            </group>
+
+            <group ref={wallmonitors_group_ref}>
+
+
+                <mesh geometry={nodes.Cube177.geometry} material={nodes.Cube177.material} position={[-0.001, 5.384, 7.556]} scale={[21.287, 3.642, 0.101]} />
+                <mesh geometry={nodes.Cube162.geometry} material={nodes.Cube162.material} position={[-0.001, 2.876, 7.556]} scale={[15.254, 5.963, 0.101]} />
+                <mesh geometry={nodes.Cube163.geometry} material={nodes.Cube163.material} position={[-4.591, 2.702, 7.556]} scale={[2.927, 5.267, 0.101]} />
+                <mesh geometry={nodes.Cube178.geometry} material={nodes.Cube178.material} position={[4.589, 2.702, 7.556]} scale={[2.927, 5.267, 0.101]} />
+                <mesh geometry={nodes.Cube179.geometry} material={nodes.Cube179.material} position={[-6.502, 3.376, 3.62]} rotation={[0, Math.PI / 2, 0]} scale={[13.42, 7.149, 0.101]} />
+                <mesh geometry={nodes.Cube180.geometry} material={nodes.Cube180.material} position={[6.502, 3.376, 3.62]} rotation={[0, Math.PI / 2, 0]} scale={[13.42, 7.149, 0.101]} />
+            </group>
+
+            <group ref={couch_group_ref}>
+                <mesh geometry={nodes.Cube166.geometry} material={nodes.Cube166.material} />
+                <mesh geometry={nodes.Cube167.geometry} material={nodes.Cube167.material} position={[0, 0, -2.41]} />
+                <mesh geometry={nodes.Cube168.geometry} material={nodes.Cube168.material} position={[0, 0, -4.813]} />
+                <mesh geometry={nodes.Cube169.geometry} material={nodes.Cube169.material} position={[-11.752, 0, 0]} />
+                <mesh geometry={nodes.Cube170.geometry} material={nodes.Cube170.material} position={[-11.752, 0, -2.41]} />
+                <mesh geometry={nodes.Cube171.geometry} material={nodes.Cube171.material} position={[-11.752, 0, -4.813]} />
+                <mesh geometry={nodes.Cube172.geometry} material={nodes.Cube172.material} position={[-2.222, 0, 12.762]} rotation={[0, Math.PI / 2, 0]} />
+                <mesh geometry={nodes.Cube173.geometry} material={nodes.Cube173.material} position={[-4.632, 0, 12.762]} rotation={[0, Math.PI / 2, 0]} />
+                <mesh geometry={nodes.Cube174.geometry} material={nodes.Cube174.material} position={[-10.342, 0, 12.762]} rotation={[0, Math.PI / 2, 0]} />
+            </group>
+
         </group>
 
     );
